@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab ITPLN - Portal Akun</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <h1>ITPLN Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="inventaris.html">Inventaris</a></li>
+                <li><a href="stok.html">Stok Barang</a></li>
+                <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                <li><a href="akun.html" class="active">Portal Akun</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Autentikasi Akun</h2>
+            <form id="loginForm">
+                <input type="text" id="nim" placeholder="NIM Mahasiswa" required>
+                <input type="password" id="password" placeholder="Kata Sandi" required>
+                <button type="submit">Masuk Sistem</button>
+            </form>
+            <div id="message" style="margin-top: 15px; text-align: center;"></div>
+        </div>
+    </main>
+
+    <footer>202432094_Bona Purba</footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nim = document.getElementById('nim').value;
+            const pass = document.getElementById('password').value;
+            if (nim === "202432094" && pass === "1234") {
+                window.location.href = "inventaris.html";
+            } else {
+                document.getElementById('message').innerHTML = "<span style='color: #e74c3c; font-weight: bold;'>NIM atau Password Salah!</span>";
+            }
+        });
+    </script>
+</body>
+</html>

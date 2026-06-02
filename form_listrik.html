@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latihan Form Listrik</title>
+</head>
+<body>
+
+<fieldset>
+    <legend>LATIHAN PERCABANGAN DENGAN FORM</legend>
+    <form method="post" action="proses_listrik.php">
+        <label>Id pelanggan :</label>
+        <input type="text" name="id_pelanggan" required><p></p>
+        
+        <label>Nama pelanggan :</label>
+        <input type="text" name="nama_pelanggan" required><p></p>
+        
+        <label>Golongan (A, B, C) :</label>
+        <select name="golongan" required>
+            <option value="">--Pilih Golongan--</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select><p></p>
+        
+        <label>Pemakaian (watt) :</label>
+        <input type="number" name="pemakaian" placeholder="0" required><p></p>
+        
+        <input type="submit" name="proses" value="Hitung Tagihan"><p></p>
+    </form>
+</fieldset>
+
+</body>
+</html>

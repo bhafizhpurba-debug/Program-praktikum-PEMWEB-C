@@ -1,0 +1,41 @@
+<?php
+// Mengambil data yang dikirim dari form_listrik.html
+$id_pelanggan   = $_POST['id_pelanggan'];
+$nama_pelanggan = $_POST['nama_pelanggan'];
+$golongan       = $_POST['golongan'];
+$pemakaian      = $_POST['pemakaian'];
+
+// Ketentuan biaya per kwh
+$biaya_per_kwh = 12000;
+
+// Percabangan IF-ELSE untuk menentukan Biaya Administrasi
+if ($golongan == "A") {
+    $biaya_admin = 20000;
+} else if ($golongan == "B") {
+    $biaya_admin = 50000;
+} else if ($golongan == "C") {
+    $biaya_admin = 130000;
+} else {
+    $biaya_admin = 0;
+}
+
+// Rumus hitungan
+$biaya_pemakaian = $biaya_per_kwh * $pemakaian;
+$total_tagihan   = $biaya_admin + $biaya_pemakaian;
+
+// Menampilkan Hasil ke Layar
+echo "<fieldset>";
+echo "<b>Hasil Perhitungan Tagihan Listrik</b><br><hr>";
+echo "ID Pelanggan : $id_pelanggan<br>";
+echo "Nama Pelanggan : $nama_pelanggan<br>";
+echo "Golongan : $golongan<br>";
+echo "Biaya per kWh : Rp " . number_format($biaya_per_kwh, 0, ',', '.') . "<br>";
+echo "Pemakaian : $pemakaian watt<br>";
+echo "Biaya Administrasi : Rp " . number_format($biaya_admin, 0, ',', '.') . "<br>";
+echo "Biaya Pemakaian : Rp " . number_format($biaya_pemakaian, 0, ',', '.') . "<br><hr>";
+echo "<b>Total Biaya Tagihan : Rp " . number_format($total_tagihan, 0, ',', '.') . "</b><br><br>";
+
+// Tombol opsional untuk kembali ke halaman form
+echo "<a href='form_listrik.html'><button>Kembali</button></a>";
+echo "</fieldset>";
+?>
